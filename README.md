@@ -65,3 +65,14 @@ Create an array of values from a list of dataframes
 - OUTPUT:
 - Data: array of data extracted
 
+`get_df_name(df)`: get the name of the dataframe
+- INPUT: dataframe
+- OUTPUT: (string)name of the dataframe
+
+`Rank_Fit_Param_Table_generate(df_lst, model)`: generates a dataframe of parameters relating to the fitting of a series of dataframes using their categorial ranking and BSR
+- INPUT: 
+- df_lst: list of the name of the dataframe
+- model: model to be fitted
+- OUTPUT:
+- Fit_Param: dataframe of parameters
+
