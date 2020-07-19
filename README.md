@@ -49,13 +49,23 @@
   - Histogram of ratings distrbution of all products.
   - Dataframe of the mean, min, max and stdev in ratings in top 10, 50 and 100 products
 
-`ratings_analysis(df)`:analyze price from the product title 
+`review_analysis(df)`:analyze price from the product title 
 - INPUT: 
   - df: dataframe (of the result extracted from Amazon website)
 - OUTPUT:
-  - One scatter plot of ratings distribution for the top products
-  - Histogram of ratings distrbution of all products.
-  - Dataframe of the mean, min, max and stdev in ratings in top 10, 50 and 100 products
+  - One scatter plot of review count distribution for the top products
+  - Histogram of review count distrbution of all products.
+  - One scatter plot of review ratio distribution for the top products
+  - Histogram of review ratio distrbution of all products.
+  - Dictionary of the mean, min, max and stdev in review count and ratio in all products
+  
+`size_analysis(df)`:analyze size from the product title 
+- INPUT: 
+  - df: dataframe (of the result extracted from Amazon website)
+- OUTPUT:
+  - One scatter plot of item volume distribution for the top products
+  - Histogram of item volume and item weight distrbution of all products.
+  - A pie chart of the Size Tier categories.
 
 `plot_sales(df)`: plot the sales data
 - INPUT: 
@@ -67,6 +77,15 @@
   3. Sales vs. # within category
   4. BSR vs. # within category
   
+`date_image_analysis(df)`:analyze size from the product title 
+- INPUT: 
+  - df: dataframe (of the result extracted from Amazon website)
+- OUTPUT:
+  - Histogram of image number distrbution of all products.
+  - One scatter plot of item days on Amazon distribution for the top products
+  - Histogram of Years on Amazon distrbution for top 10, 50, 100 products.
+  - A pie chart of the Size Tier categories.
+
 ## Modelling
 `one_ele_poly(x, beta_1, beta_2)`:
 A single element polyniomial model used to model the BSR vs. # within category
