@@ -39,27 +39,42 @@
   - df: dataframe (of the result extracted from Amazon website)
 - OUTPUT:
   - Histogram of price distrbution of all products.
-  - 
+  - Dictionary of mean, min, max and stdev of the prices
+ 
+`ratings_analysis(df)`:analyze price from the product title 
+- INPUT: 
+  - df: dataframe (of the result extracted from Amazon website)
+- OUTPUT:
+  - One scatter plot of ratings distribution for the top products
+  - Histogram of ratings distrbution of all products.
+  - Dataframe of the mean, min, max and stdev in ratings in top 10, 50 and 100 products
+
+`ratings_analysis(df)`:analyze price from the product title 
+- INPUT: 
+  - df: dataframe (of the result extracted from Amazon website)
+- OUTPUT:
+  - One scatter plot of ratings distribution for the top products
+  - Histogram of ratings distrbution of all products.
+  - Dataframe of the mean, min, max and stdev in ratings in top 10, 50 and 100 products
 
 `plot_sales(df)`: plot the sales data
-
-INPUT: 
-- df: (Dataframe) of the cleaned x-ray data
-OUTPUT:
-- plot consisting of 4 graphs:
-1. Sales vs. BSR
-2. Revenue vs. BSR
-3. Sales vs. # within category
-4. BSR vs. # within category
-
+- INPUT: 
+  - df: (Dataframe) of the cleaned x-ray data
+- OUTPUT:
+  - plot consisting of 4 graphs:
+  1. Sales vs. BSR
+  2. Revenue vs. BSR
+  3. Sales vs. # within category
+  4. BSR vs. # within category
+  
+## Modelling
 `one_ele_poly(x, beta_1, beta_2)`:
-
 A single element polyniomial model used to model the BSR vs. # within category
 - INPUT:
-- x: varibale
-- beta_1, beta_2: constant for the model
+  - x: varibale
+  - beta_1, beta_2: constant for the model
 - OUTPUT:
-- y
+  - y
 
 `exp(x, beta_1, beta_2, beta_3)`:
 An exponential model used to model the BSR vs. # within category
