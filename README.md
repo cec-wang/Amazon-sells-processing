@@ -5,19 +5,48 @@
 
 
 # Functions
+## Data Cleaning
 `x_ray_clean(df)`: cleans the dataframe from the x-ray data. 
 1. Delete unnecessary columns
 2. take ',' out of numbers
-3. change the Sales, Revenue, BSR data type from string to integer or float
+3. change the Sales, Revenue, BSR, Review Count data type from string to integer or float
 4. drop na values in Sales
-5. sort the values by BSR
-6. reset index
+5. sort the values by Sales
+6. Add 'Review Ratio', 'Volume', 'Size Tier Numeric', 'Listing Length' Column
+7. reset index
+## Data Understanding
+`tokenize(text)`:split a sentence into individual words 
+- INPUT: 
+  - text: a sentence
+- OUTPUT:
+  - clean_tokens: a list of words with stopwords removed and stemmed and lemmatized
+
+`keywords_analysis(df)`:analyze keywords from the product title
+- INPUT: 
+  - df: dataframe (of the result extracted from Amazon website)
+- OUTPUT:
+  - plot of top 10 keywords from top 5 products, top 15 keywords from top 10 products, top 20 keywords from top 50 products, top 20 keywords from top 100 products.
+  - dataframe: list of keywords and their occurance in top 5, 10, 50 and 100 products in the category
+
+`plot_Fulfillment(df)`:analyze the fulfillment method for the products 
+- INPUT: 
+  - df: dataframe (of the result extracted from Amazon website)
+- OUTPUT:
+  - Pie plot of fulfillment categories from the top 5 products, top 10 products, top 50 products, top 100 products.
+
+`price_analysis(df)`:analyze price from the product title 
+- INPUT: 
+  - df: dataframe (of the result extracted from Amazon website)
+- OUTPUT:
+  - Histogram of price distrbution of all products.
+  - 
 
 `plot_sales(df)`: plot the sales data
+
 INPUT: 
-df: (Dataframe) of the cleaned x-ray data
+- df: (Dataframe) of the cleaned x-ray data
 OUTPUT:
-plot consisting of 4 graphs:
+- plot consisting of 4 graphs:
 1. Sales vs. BSR
 2. Revenue vs. BSR
 3. Sales vs. # within category
