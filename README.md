@@ -1,8 +1,17 @@
 # Amazon-sells-processing
 
 # Documents
-**Order Report
-
+**Order Report**
+# Libraries Used
+- Pandas
+- Numpy
+- Scikit-learn
+- Matplotlib
+- Scipy
+- astropy
+- re
+- nltk
+- 
 
 # Functions
 ## Data Cleaning
