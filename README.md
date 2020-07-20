@@ -98,44 +98,113 @@ A single element polyniomial model used to model the BSR vs. # within category
 `exp(x, beta_1, beta_2, beta_3)`:
 An exponential model used to model the BSR vs. # within category
 - INPUT:
-- x: varibale
-- beta_1, beta_2, beta_3: constant for the model
+  - x: varibale
+  - beta_1, beta_2, beta_3: constant for the model
 - OUTPUT:
-- y
+  - y
 
 `inv_one_ele_poly(x, beta_1, beta_2)`:
 An inverse single element polyniomial model used to model the BSR vs. # within category
 - INPUT:
-- x: varibale
-- beta_1, beta_2, beta_3: constant for the model
+  - x: varibale
+  - beta_1, beta_2, beta_3: constant for the model
 - OUTPUT:
-- y
+  - y
+
+`Lorentz_ranking(x, beta_1, beta_2)`: 
+A Lorentz model that models sales vs. # within category
+- INPUT:
+  - x: varibale
+  - beta_1, beta_2: constant for the model
+- OUTPUT:
+  - y 
 
 `model_fitting(x, y, model)`:
 Fit a set of x and y data using a model
 - INPUT:
-- x, y: array of data of the same length
-- model: model used for modelling
+  - x, y: array of data of the same length
+  - model: model used for modelling
 - OUTPUT:
-- param: a dictionary containing betas, Mean absolute error, MSE, R2-score
-- A plot showing the fitted curve and original data
+  - param: a dictionary containing betas, Mean absolute error, MSE, R2-score
+  - A plot showing the fitted curve and original data
 
 `value_list_create(Val, df_list)`:
 Create an array of values from a list of dataframes
 - INPUT:
-- Val: the value from the dataframe we want to create a list from
-- df_list: list of dataframes to be used
+  - Val: the value from the dataframe we want to create a list from
+  - df_list: list of dataframes to be used
 - OUTPUT:
-- Data: array of data extracted
+  - Data: array of data extracted
 
 `get_df_name(df)`: get the name of the dataframe
 - INPUT: dataframe
 - OUTPUT: (string)name of the dataframe
 
+`plot_rank_distri(cat, BSR, title = '')`: 
+Plot categorial ranking vs. BSR as well as the distribution (derivative) of the ranking in BSR
+- INPUT: 
+  - cat: (list or tuple) of the categorial ranking
+  - BSR: (list or tuple) of the BSR ranking
+  - title: title of the plot
+- OUTPUT:
+  - plot 1: categorial ranking vs. BSR
+  - plot 2: distribution (derivative) of the ranking vs. BSR
+
 `Rank_Fit_Param_Table_generate(df_lst, model)`: generates a dataframe of parameters relating to the fitting of a series of dataframes using their categorial ranking and BSR
 - INPUT: 
-- df_lst: list of the name of the dataframe
-- model: model to be fitted
+  - df_lst: list of the name of the dataframe
+  - model: model to be fitted
 - OUTPUT:
-- Fit_Param: dataframe of parameters
+  - Fit_Param: dataframe of parameters
 
+`Fit_Param_Table_generate(df_lst, x, y, model = inv_one_ele_poly)`:
+generates a dataframe of parameters relating to the fitting of a series of dataframes using their categorial ranking and Sales
+- INPUT: 
+  - df_lst: list of the name of the dataframe
+  - model: model to be fitted
+- OUTPUT:
+  - Fit_Param: dataframe of parameters
+
+`cat_sales(df, model = inv_one_ele_poly)`:
+predict the sales in a category using inverse one element polynomial model
+- INPUT:
+  - df: the datafram of the items in the category containing its BSR and sales numbers
+  - model: model used to predict sales based on the ranking
+- OUTPUT:
+  - fitted: a dictionary containing betas, Mean absolute error, MSE, R2-score
+  - A plot showing the fitted curve and original data
+  - sales_results: a dictionary of the top few sales data
+  
+`cat_sales_table(df_lst)`:
+generates a dataframe that returns the sales data from a list of dataframe
+- INPUT:
+  - df: the datafram of the items in the category containing its BSR and sales numbers
+- OUTPUT:
+  - df: a dataframe of the top sales data
+  
+`cat_cat_ranking(x, beta_1s, beta_2s, beta_1b, beta_2b)`:
+Predicts the ranking of one category from the ranking of the other category
+- INPUT:
+  - x: the ranking of the category to be converted
+  - beta_1s, beta_2s: the inverse polynomial parameters of the smaller(sub-) category
+  - beta_1b, beta_2b: the inverse polynomial parameters of the bigger category
+- OUTPUT:
+  - y: the ranking of the converted category 
+  
+`cat_cat_rank_relat(general_cat, sub_cat)`:
+analyze the relationship between two categories: a general category and its sub-category
+- INPUT: 
+  - general_cat: dataframe of the general category
+  - sub_cat: dataframe of the sub-category
+- OUTPUT: 
+  - cat_cat_relat: a dictionary predicting the ranking of the top ranking in the general category, and the percentage of the top 10, 50, 100 tops in the general category
+  
+`prod_in_cat(prod_df, cat_df)`:
+Calculate some parameters relating to a product in a category.
+- INPUT: 
+  - prod_df: dataframe of the product
+  - cat_df: dataframe of the category
+- OUTPUT:
+  - ranking_by_BSR: ranking of the product in the category by the BSR
+  - ranking_by_Sales: ranking of the product in the category by Sales
+  - percentile: the percentile of the product in the cateory in ranking
