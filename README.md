@@ -2,8 +2,11 @@
 
 # Documents
 **Order Report**
+
 amz.py: the Python functions file. It is not shown here due to business concerns. 
+
 Amazon Market Analysis.ipny: the results of market analysis using Python
+
 # Libraries Used
 - Pandas
 - Numpy
