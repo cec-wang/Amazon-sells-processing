@@ -1,4 +1,15 @@
-# Amazon-sells-processing
+# Amazon-Market Understanding
+# Machine Learning Pipeline
+## Conclusions:
+- There is a trend between the different product features and the sales. 
+- The best model has MAE of 1480, MSE of 29327971.91015625, R2 score of 0.79
+- The errors are still decently high from the MAE number. 
+- The predicted sales tends to be higher for lower sales, and lower for actual high sales.
+- For our product of interest, the prediction only yields 5% error.
+- A time-dependent prediction shows that the sales will go up by 2 folds after one year. 
+## Applications:
+- This estimator can be used to find the best features (title, image number, etc) to maximize sales. 
+- The forecasting of sales can also be helpful for inventory planning.
 
 # Documents
 **Order Report**
